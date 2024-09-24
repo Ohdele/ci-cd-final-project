@@ -14,6 +14,7 @@ COUNTER = {}
 def health():
     """Health Status"""
     return jsonify(dict(status="OK")), status.HTTP_200_OK
+
 ############################################################
 # Index page
 ############################################################
@@ -42,6 +43,7 @@ def list_counters():
         for count in COUNTER.items()
     ]
     return jsonify(counters)
+
 ############################################################
 # Create counters
 ############################################################
