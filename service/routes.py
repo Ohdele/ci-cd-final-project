@@ -14,8 +14,6 @@ COUNTER = {}
 def health():
     """Health Status"""
     return jsonify(dict(status="OK")), status.HTTP_200_OK
-
-
 ############################################################
 # Index page
 ############################################################
@@ -40,13 +38,10 @@ def list_counters():
     app.logger.info("Request to list all counters...")
 
     counters = [
-        dict(name=count[0], counter=count[1]) 
+        dict(name=count[0], counter=count[1])
         for count in COUNTER.items()
     ]
-
     return jsonify(counters)
-
-
 ############################################################
 # Create counters
 ############################################################
@@ -57,7 +52,7 @@ def create_counters(name):
 
     if name in COUNTER:
         return abort(
-            status.HTTP_409_CONFLICT, 
+            status.HTTP_409_CONFLICT,
             f"Counter {name} already exists"
         )
 
@@ -100,7 +95,7 @@ def update_counters(name):
         name (str): The name of the counter to update.
 
     Returns:
-        JSON response with the updated counter value 
+        JSON response with the updated counter value
         if found, or an error if not.
     """
     app.logger.info("Request to Update counter: %s...", name)
