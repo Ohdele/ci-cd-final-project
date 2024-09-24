@@ -22,7 +22,6 @@ consistently
 """
 import logging
 
-
 def init_logging(app, logger_name: str):
     """Set up logging for production"""
     app.logger.propagate = False
@@ -40,4 +39,3 @@ def init_logging(app, logger_name: str):
         handler.setFormatter(formatter)
         
     app.logger.info("Logging handler established")
-

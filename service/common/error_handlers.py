@@ -21,7 +21,6 @@ from flask import jsonify
 from service import app
 from . import status
 
-
 ######################################################################
 # Error Handlers
 ######################################################################
@@ -39,7 +38,6 @@ def bad_request(error):
         status.HTTP_400_BAD_REQUEST,
     )
 
-
 @app.errorhandler(status.HTTP_404_NOT_FOUND)
 def not_found(error):
     """Handles not found requests with 404_NOT_FOUND"""
@@ -53,7 +51,6 @@ def not_found(error):
         ),
         status.HTTP_404_NOT_FOUND,
     )
-
 
 @app.errorhandler(status.HTTP_405_METHOD_NOT_ALLOWED)
 def method_not_supported(error):
@@ -69,7 +66,6 @@ def method_not_supported(error):
         status.HTTP_405_METHOD_NOT_ALLOWED,
     )
 
-
 @app.errorhandler(status.HTTP_409_CONFLICT)
 def resource_conflict(error):
     """Handles resource conflicts with HTTP_409_CONFLICT"""
@@ -84,7 +80,6 @@ def resource_conflict(error):
         status.HTTP_409_CONFLICT,
     )
 
-
 @app.errorhandler(status.HTTP_415_UNSUPPORTED_MEDIA_TYPE)
 def mediatype_not_supported(error):
     """Handles unsupported media requests with 415_UNSUPPORTED_MEDIA_TYPE"""
@@ -98,7 +93,6 @@ def mediatype_not_supported(error):
         ),
         status.HTTP_415_UNSUPPORTED_MEDIA_TYPE,
     )
-
 
 @app.errorhandler(status.HTTP_500_INTERNAL_SERVER_ERROR)
 def internal_server_error(error):
